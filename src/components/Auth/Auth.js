@@ -4,6 +4,7 @@ import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui
 import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { signin, gignup, signup } from '../../actions/auth';
 
 import Icon from './icon'; 
 import { AUTH } from '../../constants/actionTypes';
@@ -29,7 +30,13 @@ const SignUp = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();   
+
+    if (isSignup) {
+      dispatch(signup(form, history))
+    } else {
+      dispatch(signin(form, history))
+    }
   };
 
   const googleSuccess = async (res) => {
