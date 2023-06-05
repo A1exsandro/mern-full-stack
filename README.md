@@ -8,6 +8,8 @@
 
 ## Client 
 * npx create-react-app ./
+* npm install firebase 
+* npm install firebaseui --save --legacy-peer-deps
 
 ### File Structure
 * client
@@ -26,3 +28,10 @@
     - controllers
     - models
     - routes
+
+## Todo
+* Message Login
+    [] make login with google
+    [] show error message when not connected with backend
+    [] show error message when not signUp
+    [] show error message when password wrong
