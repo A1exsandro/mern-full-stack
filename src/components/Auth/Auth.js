@@ -20,6 +20,8 @@ const SignUp = () => {
   const history = useHistory();
   const classes = useStyles();
 
+  const credential = process.env.REACT_APP_GOOGLE_CREDENTIAL
+
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
 
@@ -79,7 +81,7 @@ const SignUp = () => {
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
           <GoogleLogin
-            clientId="GOOGLE_CREDENTIAL" 
+            clientId={credential} 
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                 Google Sign In
