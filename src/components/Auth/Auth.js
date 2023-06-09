@@ -4,7 +4,7 @@ import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui
 import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { signin, gignup, signup } from '../../actions/auth';
+import { signin, signup } from '../../actions/auth';
 
 import Icon from './icon'; 
 import { AUTH } from '../../constants/actionTypes';
@@ -80,6 +80,7 @@ const SignUp = () => {
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
+          
           <GoogleLogin
             clientId={credential} 
             render={(renderProps) => (
@@ -91,6 +92,7 @@ const SignUp = () => {
             onFailure={googleError}
             cookiePolicy="single_host_origin"
           />
+
           <Grid container justify="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
