@@ -19,11 +19,10 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
-
-  const credential = process.env.REACT_APP_GOOGLE_CREDENTIAL
-
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
+
+  const credential = process.env.REACT_APP_GOOGLE_CLOUD_CREDENTIAL 
 
   const switchMode = () => {
     setForm(initialState);
@@ -41,6 +40,8 @@ const SignUp = () => {
     }
   };
 
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
     const token = res?.tokenId;
@@ -54,9 +55,10 @@ const SignUp = () => {
     }
   };
 
-  const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
-
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const googleError = (error) => {
+    console.log(error)
+    alert('Google Sign In was unsuccessful. Try again later');
+  } 
 
   return (
     <Container component="main" maxWidth="xs">

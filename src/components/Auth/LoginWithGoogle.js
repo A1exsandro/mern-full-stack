@@ -1,27 +1,12 @@
 import React, { useState } from 'react'
 import {  
 	GoogleAuthProvider, 
-	signInWithPopup, 
-	createUserWithEmailAndPassword 
+	signInWithPopup 
 } from "firebase/auth"
 import { auth } from '../../services/firebase.js'
+import { Button } from '@material-ui/core'
 
-const LoginWithGoogle = () => {
-  const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('') // to make them
-
-  // LOGIN FIREBASE WITH EMAIL  
-	const loginWithEmail = () => createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code
-    const errorMessage = error.message
-    // ..
-  })
+const LoginWithGoogle = () => { 
 
   // LOGIN FIREBASE WITH GOOGLE 
 	const provider = new GoogleAuthProvider() 
@@ -47,15 +32,13 @@ const LoginWithGoogle = () => {
     // ...
   })
 
-  return (
-    <div>
+  return ( 
+    <Button
+      color="primary"
+      onClick={loginWithGoogle}
+    >
       Login With Google
-      <button
-        onClick={loginWithGoogle}
-      >
-        Login With Google
-      </button>
-    </div>
+    </Button> 
   )
 }
 
