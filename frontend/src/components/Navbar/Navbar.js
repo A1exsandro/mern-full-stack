@@ -34,7 +34,8 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
-        <Typography ////////////////////////// TITLE WITH LOGO
+        {/* TITLE WITH LOGO */}
+        <Typography 
           component={Link} 
           to="/" 
           className={classes.heading} 
@@ -49,20 +50,23 @@ const Navbar = () => {
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}> 
-            <Avatar ///////////////////////////// AVATAR OF USER
+            {/* AVATAR OF USER */}
+            <Avatar 
               className={classes.purple} 
               alt={user?.result.name} 
               src={user?.result.imageUrl}
             >
               {user?.result.name.charAt(0)}
             </Avatar>
-            <Typography ////////////////////////// USER NAME
+            {/* USER NAME */}
+            <Typography 
               className={classes.userName} 
               variant="h6"
             >
               {user?.result.name}
             </Typography>
-            <Button /////////////////////////////// LOGO OUT
+            {/* LOGO OUT */}
+            <Button  
               variant="contained" 
               className={classes.logout} 
               color="secondary" 
@@ -72,7 +76,8 @@ const Navbar = () => {
             </Button>
           </div>
         ) : (
-          <Button ////////////////////////////////// SIGN IN
+          // SIGN IN
+          <Button 
             component={Link} 
             to="/auth" 
             variant="contained" 
